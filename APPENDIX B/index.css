@@ -1,0 +1,51 @@
+body {
+    color: #4d926f;
+    font-size: 16px;
+}
+  
+div {
+width: 180px;
+padding: 10px;
+margin: 10px;
+}
+
+div {
+    background: black;
+  }
+  div:hover {
+    background: white;
+  }
+  div a {
+    background: red;
+    color: white;
+  }
+  div a:hover {
+    background: blue;
+  }
+  div a:hover {
+    background: green;
+  }
+  
+  
+  div {
+    height: 10px;
+  }
+  div:nth-child(1) {
+    background: #ff0000, 0%;
+  }
+  div:nth-child(2) {
+    background: #ff0000, 10%;
+  }
+  div:nth-child(3) {
+    background: #ff0000, 20%;
+  }
+  div:nth-child(4) {
+    background: #ff0000, 30%;
+  }
+  div:nth-child(5) {
+    background: #ff0000, 40%;
+  }
+  div:nth-child(6) {
+    background: #ff0000, 50%;
+  }
+  
