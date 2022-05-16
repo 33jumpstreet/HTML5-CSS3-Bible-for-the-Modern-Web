@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Static Grid System</title>
+    <style>
+        * {
+            /* 기본 초기화 */
+            margin: 0; padding: 0;
+        }
+
+        .container {
+            /* 너비 고정 and 중앙 정렬 */
+            width: 960px; margin: 0 auto;
+            padding-top: 10px;
+
+            /* 그리드 구성하기 */
+            display: grid;
+            grid-template : 70px 1fr 70px / 200px 1fr;
+            grid-gap: 5px;
+            /* 원하는 형태를 문자열로 구성 */
+            grid-template-areas: 
+                'header header'
+                'aside content'
+                'footer footer';
+        }
+
+        [class*=cell] {
+            box-sizing: border-box;
+            border : 5px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        /* 각각의 요소가 어떤 것에 해당하는지 지정(따옴표로 감싸면 안됩니다.) */
+        .cell-header {grid-area: header;}
+        .cell-aside {grid-area: aside;}
+        .cell-content {grid-area: content;}
+        .cell-footer {grid-area: footer;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cell-header">
+            <h1>Header</h1>
+        </div>
+        <div class="cell-aside">
+            <h2>Aside</h2>
+            <p>Lorem ipsum</p>
+            <p>dolor sit amet</p>
+        </div>
+        <div class="cell-content">
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet</p>
+            <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <div class="cell-footer">
+            <h1>Footer</h1>
+        </div>
+    </div>
+</body>
+</html>
