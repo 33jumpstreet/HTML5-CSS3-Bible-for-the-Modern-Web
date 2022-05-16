@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="KoreaMapPathData.js"></script>
+    <script src="raphael-min.js"></script>
+    <script>  
+        $(document).ready(function () {
+            // Create Function
+            function randomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++)
+                    color += letters[Math.round(Math.random() * 15)];
+                return color;
+            }
+            // Create Variable
+            var canvas = document.getElementById('map_image');
+            var paper = Raphael(canvas, 500, 716);
+
+            $.each(koreaMapPathData, function (index, item) {
+                // Create Path
+                var path = paper.path(item['d']);
+
+                // Stroke Path
+                path.attr('stroke', item['stroke']);
+
+                // Fill Path
+                if (item['fill'] != 'none') {
+                    path.attr('fill', randomColor());
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+            width: 900px; margin: 0 auto;
+        }
+        #main_section {
+            overflow: hidden;
+        }
+        #main_article {
+            width: 460px; float: left;
+        }
+        #main_image {
+            width: 500px; float: left;
+        }
+        figure {
+            margin: 0; padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Korea Map Path Data</h1>
+    </header>
+    <section id="main_section">
+        <article id="main_article">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus magnam, ipsa delectus expedita laborum quo dolores omnis accusantium ratione aliquid eum assumenda cupiditate voluptatem ea excepturi repudiandae, distinctio eaque corporis?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam enim sed, possimus nam laudantium maiores et, laboriosam nihil assumenda error, ut rem. Nulla quisquam laboriosam expedita? Repudiandae suscipit veritatis ad!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti beatae velit sed asperiores repudiandae, dignissimos nostrum perferendis quo reiciendis, tenetur, voluptatem voluptate ex amet. Laboriosam consequatur sunt perspiciatis repudiandae nisi.</p>
+        </article>
+        <figure id="map_image">
+
+        </figure>
+    </section>
+</body>
+</html>
